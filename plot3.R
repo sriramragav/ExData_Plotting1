@@ -1,4 +1,5 @@
 
+
 #Download the zip file from the internet
 zipfile <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 download.file(zipfile,destfile = "hpczip.zip")
@@ -23,7 +24,12 @@ hpcData <- hpcData[,c(10,11,1:9)]
 
 
 #Draw the Plot
-windows()
+
+#When I got the file uploaded to github, I found an odd background.
+#A possible solution is to print directly to png.  You can try.
+##################################################################
+png(file = "plot3.png", width = 480, height = 480)
+#plot code here
 par(mar=c(5,5,3,2))
 xrange <- range(hpcData$newDateTime)
 yrange <- range(hpcData$Sub_metering_1)
@@ -34,13 +40,13 @@ lines(hpcData$newDateTime, hpcData$Sub_metering_2, type="l", lwd=1.5,
       lty=1, col="red") 
 lines(hpcData$newDateTime, hpcData$Sub_metering_3, type="l", lwd=1.5,
       lty=1, col="blue")
-legendText <- c("Sub_metering_1  ","Sub_metering_2  ", "Sub_metering_3  ")
+legendText <- c("Sub_metering_1","Sub_metering_2", "Sub_metering_3")
 legend("topright",
        legend=legendText,
        lty=c(1,1,1),
        lwd=c(1.5,1.5,1.5),
        col=c("black","red","blue")) 
 
-
-dev.copy(png,file="plot3.png")
 dev.off()
+##################################################################
+

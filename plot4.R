@@ -23,7 +23,7 @@ hpcData <- hpcData[,c(10,11,1:9)]
 
 
 #Start plotting the graphs
-windows()
+png(file = "plot4.png", width = 480, height = 480)
 par(mfcol=c(2,2))
 xrange <- range(hpcData$newDateTime)
 yrange <- range(hpcData$Global_active_power)
@@ -60,6 +60,4 @@ plot(xrange, yrange, type="n", xlab="datetime", ylab="Global_reactive_power")
 lines(hpcData$newDateTime, hpcData$Global_reactive_power, type="l", lwd=1.5,
       lty=1) 
 
-
-dev.copy(png,file="plot4.png")
 dev.off()

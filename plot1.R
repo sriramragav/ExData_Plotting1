@@ -21,9 +21,9 @@ hpcData$newDateTime <- strptime(paste(hpcData$Date,hpcData$Time),format="%d/%m/%
 hpcData <- hpcData[,c(10,11,1:9)]
 
 #Plot 1 
+png(file = "plot1.png", width = 480, height = 480)
 par(mar=c(5,5,5,1))
 hist(hpcData$Global_active_power,col="red",main="Global Active Power", xlab="Global Active Power (kilowatts)", ylab="Frequency")
-dev.copy(png,file="plot1.png")
 dev.off()
 
 

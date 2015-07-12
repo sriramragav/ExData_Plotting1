@@ -22,11 +22,11 @@ hpcData <- hpcData[,c(10,11,1:9)]
 
 
 #Draw the Plot
+png(file = "plot2.png", width = 480, height = 480)
 par(mar=c(5,5,4,3))
 xrange <- range(hpcData$newDateTime)
 yrange <- range(hpcData$Global_active_power)
 plot(xrange, yrange, type="n", xlab="", ylab="Global Active Power (kilowatts)" ) 
 lines(hpcData$newDateTime, hpcData$Global_active_power, type="l", lwd=1.5,
       lty=1) 
-dev.copy(png,file="plot2.png")
 dev.off()
